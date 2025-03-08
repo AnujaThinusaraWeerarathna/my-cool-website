@@ -23,7 +23,7 @@
 
     /* Hello Message */
     h1 {
-      color: #00bfff; /* Bright blue color for the greeting */
+      color: #00bfff; /* Bright blue color */
       font-size: 48px;
       margin-bottom: 30px;
       text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.8); /* Glow effect */
@@ -33,7 +33,7 @@
     .search-container {
       display: flex;
       align-items: center;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     input[type="text"] {
@@ -63,38 +63,56 @@
 
     button:hover {
       background-color: #0080ff; /* Darker blue on hover */
-      transform: scale(1.1); /* Button grows slightly on hover */
+      transform: scale(1.1);
     }
 
-    /* W Button Styles */
-    .w-button {
+    /* Wavell Button Styles */
+    .wavell-button {
       position: absolute;
       top: 20px;
       left: 20px;
-      font-size: 25px;
-      padding: 15px;
+      font-size: 20px;
+      padding: 15px 25px;
       background-color: #00bfff;
       color: white;
       border: none;
-      border-radius: 50%;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+      font-weight: bold;
+    }
+
+    .wavell-button:hover {
+      background-color: #0080ff;
+      transform: scale(1.1);
+    }
+
+    /* Story Button */
+    .story-button {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 20px;
+      background-color: #ff8c00; /* Orange button */
+      border-radius: 50px;
+      border: none;
+      color: white;
       cursor: pointer;
       transition: background-color 0.3s, transform 0.3s;
     }
 
-    .w-button:hover {
-      background-color: #0080ff;
-      transform: scale(1.2); /* W button grows slightly */
+    .story-button:hover {
+      background-color: #ff6600; /* Darker orange */
+      transform: scale(1.1);
     }
 
-    /* Text next to the W button */
-    .w-button-text {
-      position: absolute;
-      top: 22px;
-      left: 85px;
-      font-size: 24px;
-      color: #00bfff;
-      font-weight: bold;
-      text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.8); /* Glow effect */
+    /* Story Text */
+    .story-text {
+      display: none; /* Hidden initially */
+      margin-top: 20px;
+      font-size: 20px;
+      color: #00ffcc; /* Light blue-green */
+      max-width: 600px;
+      text-align: center;
     }
 
   </style>
@@ -104,9 +122,8 @@
   <!-- Hello Message -->
   <h1>Hello!</h1>
 
-  <!-- W Button to open the link -->
-  <button class="w-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">W</button>
-  <span class="w-button-text">Wavell Connect</span>
+  <!-- Wavell Button -->
+  <button class="wavell-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">Wavell</button>
 
   <!-- Search Bar -->
   <div class="search-container">
@@ -114,12 +131,31 @@
     <button onclick="searchGoogle()">Search</button>
   </div>
 
+  <!-- Story Button -->
+  <button class="story-button" onclick="showStory()">Story</button>
+
+  <!-- Story Text (Initially Hidden) -->
+  <p class="story-text" id="story">
+    Once upon a time, in a world where every search led to adventure, a student discovered the power of knowledge. 
+    With every click, they unlocked new mysteries, and their curiosity grew. The journey was just beginning...
+  </p>
+
   <script>
     // Function to open Google search with the entered query
     function searchGoogle() {
       const query = document.getElementById('search-input').value;
       if (query) {
         window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+      }
+    }
+
+    // Function to show/hide the story
+    function showStory() {
+      const story = document.getElementById("story");
+      if (story.style.display === "none" || story.style.display === "") {
+        story.style.display = "block"; // Show story
+      } else {
+        story.style.display = "none"; // Hide story
       }
     }
   </script>
