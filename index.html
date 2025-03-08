@@ -1,12 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Cool Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational Search</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue and black gradient */
+      color: white;
+      font-family: Arial, sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      opacity: 0;
+      animation: fadeIn 2s forwards; /* Animation for fade-in */
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .search-container {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 2px solid #fff;
+      width: 250px;
+      background: transparent;
+      color: white;
+      outline: none;
+      margin-right: 10px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #1e90ff;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: none;
+      background: #1e90ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #104e8d;
+    }
+
+    h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Hello, World! 👋</h1>
-    <p>Welcome to my awesome website!</p>
-    <input type="text" placeholder="Search here...">
+  <h1>"Believe in yourself and all that you are."</h1>
+  <div class="search-container">
+    <input type="text" placeholder="Search..." id="searchBar">
+    <button onclick="search()">Search</button>
+  </div>
+
+  <script>
+    function search() {
+      const query = document.getElementById("searchBar").value;
+      if (query) {
+        // Redirects to Google with the search query
+        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
+      } else {
+        alert("Please enter something to search!");
+      }
+    }
+  </script>
 </body>
 </html>
