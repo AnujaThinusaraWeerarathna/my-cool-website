@@ -37,6 +37,10 @@
       align-items: center;
     }
 
+    .search-container button {
+      margin-right: 10px; /* Adds space between the "W" button and the search bar */
+    }
+
     input[type="text"] {
       padding: 10px;
       font-size: 18px;
@@ -46,7 +50,6 @@
       background: transparent;
       color: white;
       outline: none;
-      margin-right: 10px;
     }
 
     input[type="text"]:focus {
@@ -73,7 +76,6 @@
     }
 
     .w-button {
-      margin-top: 20px;
       font-size: 20px;
       background-color: #ff6347; /* Tomato color */
     }
@@ -82,12 +84,11 @@
 <body>
   <h1>"Believe in yourself and all that you are."</h1>
   <div class="search-container">
+    <!-- W Button first, then search bar -->
+    <button class="w-button" onclick="openWavellWebsite()">W</button>
     <input type="text" placeholder="Search..." id="searchBar">
     <button onclick="search()">Search</button>
   </div>
-
-  <!-- Button that opens the Wavell SHS website -->
-  <button class="w-button" onclick="openWavellWebsite()">W</button>
 
   <script>
     function search() {
