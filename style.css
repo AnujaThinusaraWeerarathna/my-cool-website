@@ -1,8 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url('https://raw.githubusercontent.com/anujathinusaraweerarathna/my-cool-website/main/images/macbook-wallpaper.jpg') no-repeat center center fixed;
-  background-size: cover;
+  background-color: black; /* Set background color to black */
   color: white;
   font-family: Arial, sans-serif;
   height: 100vh;
@@ -12,5 +11,5 @@ body {
   flex-direction: column;
   text-align: center;
   opacity: 0;
-  animation: fadeIn 2s forwards;
+  animation: fadeIn 2s forwards; /* Animation for fade-in */
 }
