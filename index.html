@@ -8,7 +8,8 @@
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(to right, #1e3c72, #2a5298); /* Blue and black gradient */
+      background: url('https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/macbook_pro_14_16__bihsn4zfgjq2_large.jpg') no-repeat center center fixed; /* MacBook wallpaper as background */
+      background-size: cover;
       color: white;
       font-family: Arial, sans-serif;
       height: 100vh;
@@ -76,8 +77,18 @@
     }
 
     .w-button {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%; /* Makes the button circular */
       font-size: 20px;
       background-color: #ff6347; /* Tomato color */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
     }
   </style>
 </head>
