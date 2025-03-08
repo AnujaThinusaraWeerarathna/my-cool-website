@@ -9,27 +9,54 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: black; /* Black background */
+      background-color: #1e1e1e; /* Dark Gray Background */
       color: white;
       font-family: 'Arial', sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       height: 100vh;
       text-align: center;
       overflow: hidden;
     }
 
-    /* Hello Message */
-    h1 {
-      color: #00bfff; /* Bright blue color */
-      font-size: 48px;
-      margin-bottom: 30px;
-      text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.8); /* Glow effect */
+    /* Container */
+    .container {
+      display: flex;
+      width: 90%;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Search Bar Styles */
+    /* Left Section (Search & Buttons) */
+    .left-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Right Section (Story) */
+    .right-section {
+      flex: 1;
+      display: none;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      text-align: left;
+      max-width: 400px;
+      height: 80vh;
+      overflow-y: auto;
+    }
+
+    /* Hello Message */
+    h1 {
+      color: #00bfff;
+      font-size: 48px;
+      text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.8);
+    }
+
+    /* Search Bar */
     .search-container {
       display: flex;
       align-items: center;
@@ -53,7 +80,7 @@
     button {
       padding: 12px 20px;
       font-size: 18px;
-      background-color: #00bfff; /* Cool blue button */
+      background-color: #00bfff;
       color: white;
       border: none;
       border-radius: 50px;
@@ -62,11 +89,11 @@
     }
 
     button:hover {
-      background-color: #0080ff; /* Darker blue on hover */
+      background-color: #0080ff;
       transform: scale(1.1);
     }
 
-    /* Wavell Button Styles */
+    /* Wavell Button */
     .wavell-button {
       position: absolute;
       top: 20px;
@@ -92,7 +119,7 @@
       margin-top: 20px;
       padding: 12px 25px;
       font-size: 20px;
-      background-color: #ff8c00; /* Orange button */
+      background-color: #ff8c00;
       border-radius: 50px;
       border: none;
       color: white;
@@ -101,44 +128,57 @@
     }
 
     .story-button:hover {
-      background-color: #ff6600; /* Darker orange */
+      background-color: #ff6600;
       transform: scale(1.1);
-    }
-
-    /* Story Text */
-    .story-text {
-      display: none; /* Hidden initially */
-      margin-top: 20px;
-      font-size: 20px;
-      color: #00ffcc; /* Light blue-green */
-      max-width: 600px;
-      text-align: center;
     }
 
   </style>
 </head>
 <body>
 
-  <!-- Hello Message -->
-  <h1>Hello!</h1>
-
   <!-- Wavell Button -->
   <button class="wavell-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">Wavell</button>
 
-  <!-- Search Bar -->
-  <div class="search-container">
-    <input type="text" id="search-input" placeholder="Search...">
-    <button onclick="searchGoogle()">Search</button>
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Left Side (Search & Buttons) -->
+    <div class="left-section">
+      <h1>Hello!</h1>
+
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="searchGoogle()">Search</button>
+      </div>
+
+      <!-- Story Button -->
+      <button class="story-button" onclick="toggleStory()">Story</button>
+    </div>
+
+    <!-- Right Side (Story) -->
+    <div class="right-section" id="story-box">
+      <h2>🔥 The Journey of a Dreamer 🔥</h2>
+      <p>
+        Once upon a time in a small town, there was a young dreamer named Alex. He wasn't the smartest, the fastest, or the strongest, 
+        but he had something special—determination. Every morning, he woke up before sunrise, working hard while the world still slept. 
+        People laughed at him, called his dreams impossible, but he didn’t care. 
+      </p>
+      <p>
+        One day, Alex found a broken computer in the trash. While others saw junk, he saw opportunity. 
+        He spent weeks fixing it, learning about coding, failing, retrying, and pushing forward. 
+        His friends were out playing games, but he was building something bigger—his future. 
+      </p>
+      <p>
+        After years of hard work, he created an app that changed millions of lives. The same people who once doubted him now looked up to him. 
+        Alex proved that success isn’t about being the best; it’s about never giving up. 
+      </p>
+      <p>
+        So, if you're ever in doubt, remember: The world may not believe in you, but **you must believe in yourself**. 
+        Greatness doesn’t come to those who wait—it comes to those who chase it. **Keep going, your story is just beginning.** 🚀
+      </p>
+    </div>
+
   </div>
-
-  <!-- Story Button -->
-  <button class="story-button" onclick="showStory()">Story</button>
-
-  <!-- Story Text (Initially Hidden) -->
-  <p class="story-text" id="story">
-    Once upon a time, in a world where every search led to adventure, a student discovered the power of knowledge. 
-    With every click, they unlocked new mysteries, and their curiosity grew. The journey was just beginning...
-  </p>
 
   <script>
     // Function to open Google search with the entered query
@@ -149,16 +189,17 @@
       }
     }
 
-    // Function to show/hide the story
-    function showStory() {
-      const story = document.getElementById("story");
-      if (story.style.display === "none" || story.style.display === "") {
-        story.style.display = "block"; // Show story
+    // Function to toggle the story on the right side
+    function toggleStory() {
+      const storyBox = document.getElementById("story-box");
+      if (storyBox.style.display === "none" || storyBox.style.display === "") {
+        storyBox.style.display = "block"; // Show story
       } else {
-        story.style.display = "none"; // Hide story
+        storyBox.style.display = "none"; // Hide story
       }
     }
   </script>
 
 </body>
 </html>
+
