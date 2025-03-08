@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(https://raw.githubusercontent.com/AnujaThinusaraWeerarathna/my-cool-website/refs/heads/main/style.css) no-repeat center center fixed;
+  background: url('https://raw.githubusercontent.com/anujathinusaraweerarathna/my-cool-website/main/images/macbook-wallpaper.jpg') no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
