@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(https://github.com/AnujaThinusaraWeerarathna/my-cool-website/blob/main/wp7338461.jpg) no-repeat center center fixed;
+  background: url(https://raw.githubusercontent.com/AnujaThinusaraWeerarathna/my-cool-website/refs/heads/main/style.css) no-repeat center center fixed;
   background-size: cover;
   color: white;
   font-family: Arial, sans-serif;
