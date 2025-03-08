@@ -3,119 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Motivational Search</title>
+  <title>My Cool Website</title>
   <style>
+    /* Body Styles */
     body {
       margin: 0;
       padding: 0;
-      background: url('https://www.apple.com/v/macbook-pro-14-and-16/b/images/overview/macbook_pro_14_16__bihsn4zfgjq2_large.jpg') no-repeat center center fixed; /* MacBook wallpaper as background */
-      background-size: cover;
+      background-color: black; /* Black background */
       color: white;
       font-family: Arial, sans-serif;
-      height: 100vh;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      height: 100vh;
       text-align: center;
-      opacity: 0;
-      animation: fadeIn 2s forwards; /* Animation for fade-in */
     }
 
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
-    }
-
+    /* Search Bar Styles */
     .search-container {
-      margin-top: 20px;
       display: flex;
-      justify-content: center;
       align-items: center;
-    }
-
-    .search-container button {
-      margin-right: 10px; /* Adds space between the "W" button and the search bar */
     }
 
     input[type="text"] {
       padding: 10px;
-      font-size: 18px;
-      border-radius: 5px;
-      border: 2px solid #fff;
-      width: 250px;
-      background: transparent;
-      color: white;
+      font-size: 16px;
+      border: none;
       outline: none;
-    }
-
-    input[type="text"]:focus {
-      border-color: #1e90ff;
+      border-radius: 5px;
+      margin-right: 10px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 10px 15px;
       font-size: 18px;
-      border-radius: 5px;
-      border: none;
-      background: #1e90ff;
+      background-color: #444;
       color: white;
+      border: none;
+      border-radius: 50%;
       cursor: pointer;
     }
 
     button:hover {
-      background: #104e8d;
+      background-color: #666;
     }
 
-    h1 {
-      font-size: 40px;
-      margin-bottom: 20px;
-    }
-
+    /* Button Styles */
     .w-button {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%; /* Makes the button circular */
+      position: absolute;
+      top: 20px;
+      left: 20px;
       font-size: 20px;
-      background-color: #ff6347; /* Tomato color */
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      padding: 15px;
+      background-color: #444;
       color: white;
       border: none;
+      border-radius: 50%;
       cursor: pointer;
-      margin-right: 10px;
+    }
+
+    .w-button:hover {
+      background-color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>"Believe in yourself and all that you are."</h1>
+
+  <!-- W Button to open the link -->
+  <button class="w-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">W</button>
+
+  <!-- Search Bar -->
   <div class="search-container">
-    <!-- W Button first, then search bar -->
-    <button class="w-button" onclick="openWavellWebsite()">W</button>
-    <input type="text" placeholder="Search..." id="searchBar">
-    <button onclick="search()">Search</button>
+    <input type="text" id="search-input" placeholder="Search...">
+    <button onclick="searchGoogle()">Search</button>
   </div>
 
   <script>
-    function search() {
-      const query = document.getElementById("searchBar").value;
+    // Function to open Google search with the entered query
+    function searchGoogle() {
+      const query = document.getElementById('search-input').value;
       if (query) {
-        // Redirects to Google with the search query
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, '_blank');
-      } else {
-        alert("Please enter something to search!");
+        window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
       }
     }
-
-    function openWavellWebsite() {
-      // Opens the Wavell SHS website in a new tab
-      window.open('https://connect.wavellshs.eq.edu.au/', '_blank');
-    }
   </script>
+
 </body>
 </html>
+
