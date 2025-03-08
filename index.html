@@ -85,6 +85,18 @@
       background-color: #0080ff;
       transform: scale(1.2); /* W button grows slightly */
     }
+
+    /* Text next to the W button */
+    .w-button-text {
+      position: absolute;
+      top: 22px;
+      left: 85px;
+      font-size: 24px;
+      color: #00bfff;
+      font-weight: bold;
+      text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.8); /* Glow effect */
+    }
+
   </style>
 </head>
 <body>
@@ -94,6 +106,7 @@
 
   <!-- W Button to open the link -->
   <button class="w-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">W</button>
+  <span class="w-button-text">Wavell Connect</span>
 
   <!-- Search Bar -->
   <div class="search-container">
