@@ -91,14 +91,14 @@ button:hover {
 /* Wavell Connect Button */
 .wavell-button {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  font-size: 24px;  /* Made bigger */
+  top: 18px;
+  left: 18px;
+  font-size: 22px;  /* Made bigger */
   padding: 20px 35px;  /* Made bigger */
   background-color: #00bfff;
   color: white;
   border: none;
-  border-radius: 50px;
+  border-radius: 39px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   font-weight: bold;
