@@ -45,8 +45,8 @@ body {
 
 /* Hello Message */
 h1 {
-  color: black;  /* Changed to black */
-  font-size: 72px;  /* Made bigger */
+  color: black;
+  font-size: 72px;
   font-weight: bold;
   text-shadow: 2px 2px 10px rgba(0, 191, 255, 0.3);
 }
@@ -93,8 +93,8 @@ button:hover {
   position: absolute;
   top: 18px;
   left: 18px;
-  font-size: 22px;  /* Made bigger */
-  padding: 20px 35px;  /* Made bigger */
+  font-size: 22px;
+  padding: 20px 35px;
   background-color: #00bfff;
   color: white;
   border: none;
@@ -125,4 +125,79 @@ button:hover {
 .story-button:hover {
   background-color: #ff6600;
   transform: scale(1.1);
+}
+
+/* Personal Button */
+.personal-button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-weight: bold;
+}
+
+.personal-button:hover {
+  background-color: #45a049;
+  transform: scale(1.1);
+}
+
+/* Styles for the corner display */
+.user-info {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #00bfff;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.user-info:hover {
+  transform: scale(1.2);
+}
+
+/* Username Tooltip */
+.user-info .username {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: -120px;  /* Position the username to the left */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.user-info:hover .username {
+  display: block;
+}
+
+.user-email {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: -10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.user-info:hover .user-email {
+  display: block;
 }
