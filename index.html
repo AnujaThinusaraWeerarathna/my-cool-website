@@ -1,78 +1,193 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cool Anuja - My Awesome Website</title>
-  
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="Cool Anuja - A Personal Website with Stories, Search, and More!">
-  <meta name="keywords" content="cool anuja, anuja website, personal website, coding, stories">
-  <meta name="author" content="Anuja">
-  <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cool Website</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
+    <style>
+      /* Styles for the corner display */
+      .user-info {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+        background-color: #00bfff;
+        border-radius: 50%;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: transform 0.3s;
+      }
 
-  <!-- Favicon (Optional) -->
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+      .user-info:hover {
+        transform: scale(1.2);
+      }
 
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css">
+      /* Username Tooltip */
+      .user-info .username {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -120px;  /* Position the username to the left */
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        font-size: 16px;
+        white-space: nowrap;
+      }
+
+      .user-info:hover .username {
+        display: block;
+      }
+
+      .user-email {
+        display: none;
+        position: absolute;
+        top: 50px;
+        left: -10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+      }
+
+      .user-info:hover .user-email {
+        display: block;
+      }
+
+      /* Personal Button */
+      .personal-button {
+        margin-top: 20px;
+        padding: 12px 25px;
+        font-size: 20px;
+        background-color: #4CAF50; /* Green background */
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+        font-weight: bold;
+      }
+
+      .personal-button:hover {
+        background-color: #45a049; /* Darker green when hovered */
+        transform: scale(1.1); /* Slightly bigger on hover */
+      }
+    </style>
 </head>
-<body onload="checkUser()">
+<body>
 
-  <!-- Wavell Button -->
-  <button class="wavell-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">Wavell</button>
+    <!-- Wavell Button -->
+    <button class="wavell-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">Wavell</button>
 
-  <!-- Main Container -->
-  <div class="container">
-    
-    <!-- Left Side (Search & Buttons) -->
-    <div class="left-section">
-      <h1>Hello!</h1>
+    <!-- Main Container -->
+    <div class="container">
+        <div class="left-section">
+            <h1>Hello!</h1>
 
-      <div class="search-container">
-        <input type="text" id="search-input" placeholder="Search...">
-        <button onclick="searchGoogle()">Search</button>
-      </div>
+            <div class="search-container">
+                <input type="text" id="search-input" placeholder="Search...">
+                <button onclick="searchGoogle()">Search</button>
+            </div>
 
-      <!-- Personal Button (Hidden After Sign-in) -->
-      <button id="personal-button" class="personal-button" onclick="window.location.href='signup.html'">Personal</button>
+            <!-- Personal Button (Visible only when not signed in) -->
+            <button class="personal-button" id="personal-button" onclick="showPersonalPage()">Personal</button>
 
-      <!-- Story Button (Always Visible) -->
-      <button class="story-button" onclick="toggleStory()">Story</button>
+            <!-- Story Button (Always Visible) -->
+            <button class="story-button" onclick="toggleStory()">Story</button>
+        </div>
+
+        <div class="right-section" id="story-box">
+            <h2>🔥 The Journey of a Dreamer 🔥</h2>
+            <p>
+                Once upon a time in a small town, there was a young dreamer named Alex. He wasn't the smartest, the fastest, or the strongest,
+                but he had something special—determination. Every morning, he woke up before sunrise, working hard while the world still slept.
+            </p>
+            <p>
+                One day, Alex found a broken computer in the trash. While others saw junk, he saw opportunity. He spent weeks fixing it, learning about coding,
+                failing, retrying, and pushing forward.
+            </p>
+            <p>
+                After years of hard work, he created an app that changed millions of lives. The same people who once doubted him now looked up to him.
+                Alex proved that success isn’t about being the best; it’s about never giving up.
+            </p>
+            <p>
+                So, if you're ever in doubt, remember: The world may not believe in you, but **you must believe in yourself**.
+                Greatness doesn’t come to those who wait—it comes to those who chase it. **Keep going, your story is just beginning.** 🚀
+            </p>
+        </div>
     </div>
 
-    <!-- Right Side (Story) -->
-    <div class="right-section" id="story-box">
-      <h2>🔥 The Journey of a Dreamer 🔥</h2>
-      <p>
-        Once upon a time in a small town, there was a young dreamer named Alex. He wasn't the smartest, the fastest, or the strongest, 
-        but he had something special—determination. Every morning, he woke up before sunrise, working hard while the world still slept. 
-        People laughed at him, called his dreams impossible, but he didn’t care. 
-      </p>
-      <p>
-        One day, Alex found a broken computer in the trash. While others saw junk, he saw opportunity. 
-        He spent weeks fixing it, learning about coding, failing, retrying, and pushing forward. 
-        His friends were out playing games, but he was building something bigger—his future. 
-      </p>
-      <p>
-        After years of hard work, he created an app that changed millions of lives. The same people who once doubted him now looked up to him. 
-        Alex proved that success isn’t about being the best; it’s about never giving up. 
-      </p>
-      <p>
-        So, if you're ever in doubt, remember: The world may not believe in you, but **you must believe in yourself**. 
-        Greatness doesn’t come to those who wait—it comes to those who chase it. **Keep going, your story is just beginning.** 🚀
-      </p>
+    <!-- Display User Info in the Corner -->
+    <div class="user-info" id="user-info">
+        <span id="user-initial"></span>
+        <div class="username" id="user-username"></div> <!-- Username on Hover -->
+        <div class="user-email" id="user-email"></div> <!-- Email on Hover -->
     </div>
-  </div>
 
-  <!-- User Profile (Shows After Login) -->
-  <div id="user-profile" class="user-profile" style="display: none;">
-    <span id="user-initial" class="user-initial"></span>
-    <span id="user-info" class="user-info"></span>
-  </div>
+    <script>
+      // Function to open Google search with the entered query
+      function searchGoogle() {
+        const query = document.getElementById('search-input').value;
+        if (query) {
+          window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+        }
+      }
 
-  <!-- Link to JavaScript -->
-  <script src="script.js"></script>
+      // Function to toggle the story on the right side
+      function toggleStory() {
+        const storyBox = document.getElementById("story-box");
+        if (storyBox.style.display === "none" || storyBox.style.display === "") {
+          storyBox.style.display = "block"; // Show story
+        } else {
+          storyBox.style.display = "none"; // Hide story
+        }
+      }
+
+      // Check if there's a user in localStorage and display info
+      const username = localStorage.getItem("username");
+      const email = localStorage.getItem("email");
+
+      if (username && email) {
+        const firstLetter = username.charAt(0).toUpperCase(); // Get the first letter of username
+        document.getElementById("user-initial").textContent = firstLetter;
+        document.getElementById("user-username").textContent = username;
+        document.getElementById("user-email").textContent = email;
+
+        // Hide Personal button after user is logged in
+        document.getElementById("personal-button").style.display = "none";
+      }
+
+      // Function to simulate sign-in and set user data
+      function showPersonalPage() {
+        // Simulate user input for the example
+        const usernameInput = prompt("Enter your username:");
+        const emailInput = prompt("Enter your email:");
+
+        if (usernameInput && emailInput) {
+          // Save the user data to localStorage
+          localStorage.setItem("username", usernameInput);
+          localStorage.setItem("email", emailInput);
+
+          // Hide the Personal button
+          document.getElementById("personal-button").style.display = "none";
+
+          // Update the display with the user info
+          const firstLetter = usernameInput.charAt(0).toUpperCase();
+          document.getElementById("user-initial").textContent = firstLetter;
+          document.getElementById("user-username").textContent = usernameInput;
+          document.getElementById("user-email").textContent = emailInput;
+        }
+      }
+    </script>
 
 </body>
 </html>
