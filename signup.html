@@ -1,41 +1,49 @@
-<!-- signup.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Account</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS -->
-    <script>
-      function submitForm(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        // Get the user's name and email from the form
-        const username = document.getElementById("username").value;
-        const email = document.getElementById("email").value;
-
-        // Save the first letter of the username and email in localStorage
-        localStorage.setItem("username", username);
-        localStorage.setItem("email", email);
-
-        // Redirect to home page
-        window.location.href = "index.html";
-      }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cool Website</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to CSS -->
 </head>
-<body>
-    <h1>Create Your Account</h1>
-    <form onsubmit="submitForm(event)">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username" required><br><br>
+<body onload="checkUser()">
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required><br><br>
+  <!-- Wavell Button -->
+  <button class="wavell-button" onclick="window.open('https://connect.wavellshs.eq.edu.au/', '_blank')">Wavell</button>
 
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" required><br><br>
+  <!-- Personal Button (Sign-up) -->
+  <button id="personal-button" class="personal-button" onclick="window.location.href='signup.html'">Personal</button>
 
-        <button type="submit">Create Account</button>
-    </form>
+  <!-- User Profile (Hidden by Default) -->
+  <div id="user-profile" class="user-profile">
+    <span id="user-initial"></span>
+    <div id="user-info"></div>
+  </div>
+
+  <!-- Main Container -->
+  <div class="container">
+    
+    <!-- Left Side (Search & Buttons) -->
+    <div class="left-section">
+      <h1>Hello!</h1>
+
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button onclick="searchGoogle()">Search</button>
+      </div>
+
+      <!-- Story Button -->
+      <button class="story-button" id="story-button" onclick="toggleStory()">Story</button>
+    </div>
+
+    <!-- Right Side (Story) -->
+    <div class="right-section" id="story-box">
+      <h2>🔥 The Journey of a Dreamer 🔥</h2>
+      <p>Once upon a time...</p>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script> <!-- Link to JavaScript -->
 </body>
 </html>
